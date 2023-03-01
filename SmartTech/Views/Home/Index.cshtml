@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CommanLayer.TicketCL>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- table area start		 -->
+<section class="t-Area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="t-Head">
+                    <div class="t-Heading">
+                        <h1>
+                            My Tickets
+                        </h1>
+                    </div>
+                    <div class="t-Btn">
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="CreateTicket">Create Ticket</a></li>
+                            <li><a href="#">View Tickets</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <tr class="table-header">
+                        <th class="cell">Ticket Subject</th>
+                        <th class="cell">Ticket Number</th>
+                        <th class="cell">Created On</th>
+
+
+                    </tr>
+                    @foreach (var ticketList in Model)
+                    {
+                        <tr class="active">
+                            <td>@ticketList.Title</td>
+                            <td><span><a href="#">@ticketList.TicketNo</a></span></td>
+                            <td>@ticketList.CreatedOn</td>
+
+
+                        </tr>
+
+                    }
+
+                    @*<tr>
+            <td>Kindly proceed the term...</td>
+            <td><span><a href="ticket-details.html">5ED5406</a></span></td>
+            <td>21/07/2022 16:53:50</td>
+
+        </tr>*@
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- table area end		 -->

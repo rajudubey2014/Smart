@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SmartTech</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
+    <link rel="shortcut icon" type="image/png" href="~/assets/images/icon.png">
+    <title>Welcome</title>
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar-fixed-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <div class="top-area">
+                        <div class="m-head">
+                            <div class="logo">
+                                <img src="~/assets/images/logo.png">
+                            </div>
+                            <div class="l-Og-btn d-block d-xl-none d-md-none">
+                                <a asp-controller="Account" asp-action="Logout"><img src="~/assets/images/logout.png"></a>
+                            </div>
+                        </div>
+                        <div class="r-Menu d-none d-md-block d-xl -block">
+                            <ul>
+                                <li>Hello,  <span>@User.Identity.Name <img src="~/assets/images/user.png"></span></li>
+                                <li><a asp-controller="Account" asp-action="Logout">Logout <span><img src="~/assets/images/logout.png"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="m-Menu-right d-block d-xl-none d-md-none">
+                            <ul>
+                                <li>Hello,  <span>@User.Identity.Name</span> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - SmartTech - <a asp-area="" asp-controller="Home"></a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)*@
+</body>
+</html>

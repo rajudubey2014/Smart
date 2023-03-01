@@ -1,0 +1,51 @@
+﻿@model CommanLayer.TicketCL
+<section class="t-Area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="t-Head">
+                    <div class="t-Heading">
+                        <h1>
+                            Create Ticket
+                        </h1>
+                    </div>
+                    <div class="t-Btn">
+                        <ul>
+                            <li><a asp-controller="Home" asp-action="CreateTicket">Create Ticket</a></li>
+                            <li><a asp-controller="Home" asp-action="Index">View Tickets</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <form method="post" asp-controller="Home" asp-action="CreateTicket">
+                    <div class="create-ticket">
+                        <div class="form-Head">
+                            Create New Ticket
+                        </div>
+                        <div class="t-Form">
+                            <div class="form-group">
+                                <label>Title (Max Length 100 Characters)</label>
+                                <input type="text" asp-for="Title" class="form-control " placeholder="Subject (Required)">
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>General Description</label>
+                                <input type="text" class="form-control" asp-for="Description" placeholder="General Description">
+                                <p>Note: Please dont not paste copied images into the editor. To add images, kindly upload them using the picture upload option.</p>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="c-Btn">
+                                    <button type="submit" class="btn-tkt">Submit Ticket</button>
+                                    <button type="submit" class="btn-tkt-2">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,158 @@
+﻿@model IEnumerable<CommanLayer.TicketCL>
+
+
+<section class="t-Area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="t-Head">
+                    <div class="t-Heading">
+                        <h1>
+                            My Tickets
+                        </h1>
+                    </div>
+                    <div class="t-Btn">
+                        <ul>
+                            <li><a href="create-ticket.html">Create Ticket</a></li>
+                            <li><a href="#">View Tickets</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <table class="table table-bordered">
+                    <tr class="table-header">
+                        <th class="cell">Ticket Subject</th>
+                        <th class="cell">Ticket Number</th>
+                        <th class="cell">Created On</th>
+
+                    </tr>
+                    <tr class="active">
+                        <td>Server Renewal Payment...</td>
+                        <td><span>EBBB3D</span></td>
+                        <td>25/06/2021 15:52:54 </td>
+
+                    </tr>
+
+
+                </table>
+
+                <div class="my-tickets-2">
+                    <div class="bOx-tkt">
+                        <div class="bx-tkt-head">
+                            <div class="tKT-n">Mayank - <span>Client</span></div>
+                            <div class="tKT-d"><h5>02/12/2022</h5><h6>11:09:43</h6></div>
+                        </div>
+                        <div class="tKt-txt">
+                            <h4>Hello Team,</h4>
+                            <p>My Client has purchase the domain from google domain - laxmikantbajpai.com</p>
+                            <p>I have changes the nameservers of the domain as per my server and done the hosting at our end. Its almost 2 days now but Website Hosting default page is not coming.</p>
+                            <p>Pls help into this, Urgent, for reference pls check the attachment.</p>
+                        </div>
+                        <div class="tKt-img">
+                            <i class="fa fa-paperclip fa-rotate-90"></i> laxmi.png
+                        </div>
+                    </div>
+
+                    @*<div class="bOx-tkt bOx-tkt-2">
+                        <div class="bx-tkt-head">
+                            <div class="tKT-n">Vishal Mirchandani - <span>Admin</span></div>
+                            <div class="tKT-d"><h5>02/12/2022</h5><h6>11:09:43</h6></div>
+                        </div>
+                        <div class="tKt-txt tKt-txt-2">
+                            <h4>Dear Mayank,</h4>
+                            <p>Greeting from ZNetLive!<br>
+                            <p>I have changes the nameservers of the domain as per my server and done the hosting at our end. Its almost 2 days now but Website Hosting default page is not coming.</p>
+                            <p>Pls help into this, Urgent, for reference pls check the attachment.</p>
+                        </div>
+
+                    </div>*@
+                </div>
+
+                @*<div class="my-tickets-2">
+                    <div class="bOx-tkt">
+                        <div class="bx-tkt-head">
+                            <div class="tKT-n">Mayank - <span>Client</span></div>
+                            <div class="tKT-d"><h5>02/12/2022</h5><h6>11:09:43</h6></div>
+                        </div>
+                        <div class="tKt-txt">
+                            <h4>Hello Team,</h4>
+                            <p>My Client has purchase the domain from google domain - laxmikantbajpai.com</p>
+                            <p>I have changes the nameservers of the domain as per my server and done the hosting at our end. Its almost 2 days now but Website Hosting default page is not coming.</p>
+                            <p>Pls help into this, Urgent, for reference pls check the attachment.</p>
+                        </div>
+                        <div class="tKt-img">
+                            <i class="fa fa-paperclip fa-rotate-90"></i> laxmi.png
+                        </div>
+                    </div>
+
+                    <div class="bOx-tkt bOx-tkt-2">
+                        <div class="bx-tkt-head">
+                            <div class="tKT-n">Vishal Mirchandani - <span>Admin</span></div>
+                            <div class="tKT-d"><h5>02/12/2022</h5><h6>11:09:43</h6></div>
+                        </div>
+                        <div class="tKt-txt tKt-txt-2">
+                            <h4>Dear Mayank,</h4>
+                            <p>Greeting from ZNetLive!<br>
+                            <p>I have changes the nameservers of the domain as per my server and done the hosting at our end. Its almost 2 days now but Website Hosting default page is not coming.</p>
+                            <p>Pls help into this, Urgent, for reference pls check the attachment.</p>
+                        </div>
+
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="create-ticket">
+                    <form method="post" asp-controller="Home" asp-action="CreateDescription">
+                        <div class="t-Form border-0 mt-25">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Select Sender</label>
+                                        <div class="form-group ">
+                                            <select name="select--" class="form-control " required="" title="Select Servie">
+                                                
+                                                <option value="">Mayank Gupta (smartlogicsapp@gmail.com)</option>
+
+                                            </select>
+                                            @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Enter Your Reply</label>
+                                        <input type="text" class="form-control " placeholder="Enter Your Reply" required="">
+                                        <p>Note: Please dont not paste copied images into the editor. To add images, kindly upload them using the picture upload option.</p>
+                                        @*<span asp-validation-for="Email" class="text-danger"></span>*@
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <hr>
+                            <div class="form-group text-right">
+                                <div class="c-Btn">
+                                    <button type="submit" class="btn-tkt-2 mr-">
+                                        <img src="~/assets/images/cross.png">
+                                        Close Ticket
+                                    </button>
+                                    <button type="submit" class="btn-tkt mr--">Post Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- table area end		 -->
