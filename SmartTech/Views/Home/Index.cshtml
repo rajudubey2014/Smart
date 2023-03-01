@@ -33,7 +33,7 @@
                     {
                         <tr class="active">
                             <td>@ticketList.Title</td>
-                            <td><span><a href="#">@ticketList.TicketNo</a></span></td>
+                            <td><span><a asp-controller="Home" asp-action="TicketDetails" asp-route-id="@ticketList.TicketNo">@ticketList.TicketNo</a></span></td>
                             <td>@ticketList.CreatedOn</td>
 
 

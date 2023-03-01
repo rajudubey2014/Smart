@@ -38,14 +38,16 @@ namespace SmartTech.Controllers
             if (ModelState.IsValid)
             {
                 int result = business.LoginUser(userAutho);
-                if (result == 1 || result == 2)
+                if (result == 1)
                 {
                     var claims = new List<Claim>()
                     {
 
                         new Claim(ClaimTypes.NameIdentifier,Convert.ToString(userAutho.Email)),
                         new Claim(ClaimTypes.Name,userAutho.Email),
-                        
+                        new Claim(ClaimTypes.Role,"Admin"),
+                        //new Claim(ClaimTypes.Email,Convert.ToString(result)),
+
 
                     };
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -56,11 +58,31 @@ namespace SmartTech.Controllers
                     }); ;
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result == 2)
+                {
+                    var claims = new List<Claim>()
+                    {
+
+                        new Claim(ClaimTypes.NameIdentifier,Convert.ToString(userAutho.Email)),
+                        new Claim(ClaimTypes.Name,userAutho.Email),
+                        new Claim(ClaimTypes.Role,"User"),
+
+                    };
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties()
+                    {
+                        IsPersistent = true
+                    }); 
+                    return RedirectToAction("Index", "Home");
+                }
                 else
                 {
                     ViewBag.error = "Invalid Login Credentails!";
                     return View(userAutho);
                 }
+
+
             }
             return View(userAutho);
         }

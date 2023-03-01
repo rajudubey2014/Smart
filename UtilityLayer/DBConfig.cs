@@ -19,6 +19,18 @@ namespace UtilityLayer
             return dataTable;
         }
 
+        public static DataSet ExecuteSpDataSet(string SPName, ArrayList sqlParamters)
+        {
+            SqlDataAdapter sqlData = new SqlDataAdapter(SPName, ConnectionString.CName);
+            sqlData.SelectCommand.CommandType = CommandType.StoredProcedure;
+            foreach (SqlParameter parameter in sqlParamters)
+            {
+                sqlData.SelectCommand.Parameters.Add(parameter);
+            }
+            DataSet dataTable = new DataSet();
+            sqlData.Fill(dataTable);
+            return dataTable;
+        }
         public static DataTable ExecuteSpDataTable(string SPName, ArrayList sqlParamters)
         {
             SqlDataAdapter sqlData = new SqlDataAdapter(SPName, ConnectionString.CName);

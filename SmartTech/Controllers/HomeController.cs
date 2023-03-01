@@ -62,14 +62,12 @@ namespace SmartTech.Controllers
             return View();
         }
 
-        public IActionResult TicketDetails()
+        public IActionResult TicketDetails(int id)
         {
-            var ticketCL = new List<TicketCL>();
-            var UserAuthoCL = new List<UserAuthoCL>();
             try
             {
-
-                return View();
+                var TicketDetails = business.GetTicketsDetails(id);
+                return View(TicketDetails);
             }
             catch(Exception)
             {
@@ -79,11 +77,15 @@ namespace SmartTech.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateDescription(TicketCL ticketCL)
+        public IActionResult CreateDescription(TicketCombine ticketCombine)
         {
             if(ModelState.IsValid)
             {
-                return RedirectToAction("TicketDetails");
+                business.CreateTicketDetails(ticketCombine);
+
+                return RedirectToAction("Index");
+
+
             }
             return View();
         }

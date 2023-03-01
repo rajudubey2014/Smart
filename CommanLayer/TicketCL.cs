@@ -17,7 +17,6 @@ namespace CommanLayer
         public string CreatedOn { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required]
         public string UserName { get; set; }
 
     }
